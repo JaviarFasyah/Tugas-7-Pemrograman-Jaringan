@@ -1,0 +1,53 @@
+{{ define "header" }}
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/bootstrap/fontawesome/css/all.css">
+        <title>Nius Owsem</title>
+    </head>
+<body>
+    <nav class="navbar sticky-top navbar-expand bg-primary">
+        <div class="container">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row">
+                    <span class="navbar-text text-light">
+                        <i class="far fa-newspaper fa-2x"></i> <span style="font-size: 16pt; margin-right: 20px">Nius Owsem</span>
+                    </span>
+                    <ul class="navbar-nav d-none d-sm-block" style="margin-top: 10px">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/">Home</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto d-none d-sm-block" style="margin-top: 10px">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/new"><i class="far fa-file-alt fa-lg"></i> New Post</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav d-sm-none">
+                        <li class="nav-item">
+                            <div class="dropdown show">
+                                <a class="btn btn-primary border" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bars fa-lg"></i>
+                                </a>      
+                                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item text-light" href="/">Home</a>
+                                    <a class="dropdown-item text-light" href="/new">New Post</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </nav>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+{{ end }}

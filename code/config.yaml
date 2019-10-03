@@ -1,0 +1,6 @@
+db:
+    dbname: "mydb"
+    collection: "news"
+    connect: "mongodb://localhost:27017"
+port_http: ":8000"
+port_https: ":443"

@@ -1,0 +1,62 @@
+{{ define "footer" }}
+                    <button class="btn btn-default text-primary float-right" 
+                    style="position: sticky; bottom: 0%; margin-right: -4.6%; z-index: 1; padding: 0px;" 
+                    id="top">
+                        <i class="far fa-caret-square-up fa-3x"></i>
+                    </button>                
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <div class="row bg-dark text-light text-center" style="height: 70px">
+                <div class="col">
+                    <br>
+                    <i class="far fa-copyright"></i> 2019 JaviarFasyah. All rights reserved
+                </div>
+            </div>
+        </div>
+        <script src="/bootstrap/jquery-3.4.1.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#b-italic").click(function(){
+                    $("#body").val($("#body").val()+'<i>'+$("#t-italic").val()+'</i>');
+                    $("#t-italic").val("");
+                });
+                $("#b-newline").click(function(){
+                    $("#body").val($("#body").val()+'<br><br>');
+                });
+                $("#b-subsect").click(function(){
+                    $("#body").val($("#body").val()+'<h4>'+$("#t-subsect").val()+'</h4>');
+                    $("#t-subsect").val("");
+                });
+                $("#b-link").click(function(){
+                    if ($("#t-link-a").val() == ""){
+                        $("#body").val($("#body").val()+'<a href="'+$("#t-link-u").val()+'">'+$("#t-link-u").val()+'</a>');
+                        $("#t-link-a").val("");
+                        $("#t-link-u").val("");
+                    } else{
+                        $("#body").val($("#body").val()+'<a href="'+$("#t-link-u").val()+'">'+$("#t-link-a").val()+'</a>');
+                        $("#t-link-a").val("");
+                        $("#t-link-u").val("");
+                    }
+                });
+                $("#b-img").click(function(){
+                    if ($("#t-img-d").val() != ""){
+                        $("#body").val($("#body").val()+'<center><img class="img-fluid" src="'+$("#t-img-i").val()+'"><br>'+$("#t-img-d").val()+'</center>');
+                        $("#t-img-i").val("");
+                        $("#t-img-d").val("");
+                    } else {
+                        $("#body").val($("#body").val()+'<center><img class="img-fluid" src="'+$("#t-img-i").val()+'"><br>'+'</center>');
+                        $("#t-img-i").val("");
+                        $("#t-img-d").val("");
+                    }
+                });
+                $('#top').click(function(event) {
+                    $('html, body').animate({scrollTop: '0px'}, 500);
+                });
+            });
+        </script>
+    </body>
+</html>
+{{ end }}

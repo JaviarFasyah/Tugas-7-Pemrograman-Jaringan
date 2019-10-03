@@ -1,0 +1,41 @@
+{{ define "index" }}
+{{ template "header" }}
+<div class="row">
+  <div class="col">
+    <h1>Home</h1>
+  </div>
+</div>
+<br>
+{{ range . }}
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <a href='view/{{ .ID }}'>
+          <h2>{{ .Title }}</h2>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <i class="fas fa-user-edit fa-lg"></i> {{ .Author }}
+      </div>
+      <div class="col-md-3">
+        <i class="far fa-calendar-alt fa-lg"></i> {{ .Date }}
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-theater-masks fa-lg"></i> {{ .React }} from {{ .Count }} reaction(s) 
+      </div>
+      <div class="col-md-2">
+        <a href='/edit/{{ .ID }}'><button class="btn btn-warning"><i class="far fa-edit"></i></button></a> 
+        <a href='/delete/{{ .ID }}' onclick="return confirm('You are going to delete {{ .Title }}, are you sure?')">
+          <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+{{ end }}
+{{ template "footer" }}
+{{ end }}

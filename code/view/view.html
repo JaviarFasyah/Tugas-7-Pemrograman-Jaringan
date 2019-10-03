@@ -1,0 +1,71 @@
+{{ define "view" }}
+{{ template "header" }}
+<div class="row">
+   <div class="col">
+      <a href="/"><button class="btn btn-info"><i class="fas fa-chevron-left"></i> Back</button></a>
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col">
+      <h1 class="text-center">{{ .Title }}</h1>
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-3">
+      <i class="fas fa-user-edit fa-lg"></i> {{ .Author }}
+   </div>
+   <div class="col-md-3">
+     <i class="far fa-calendar-alt fa-lg"></i> {{ .Date }}
+   </div>
+   <div class="col-md-3">
+      <i class="fas fa-theater-masks fa-lg"></i> {{ .React }} from {{ .Count }} reaction(s) 
+   </div>
+   <div class="col-md-3">
+      <div class="row">
+         <div class="col-xl-6">
+            <a href='/edit/{{ .ID }}'><i class="far fa-edit"></i> Edit</a>
+         </div>
+         <div class="col-xl-6">
+            <a href='/delete/{{ .ID }}' onclick="return confirm('You are going to delete {{ .Title }}, are you sure?')">
+               <i class="fas fa-trash-alt"></i> Delete
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col">
+      {{ .Body }}
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col">
+      your reaction to this post:
+      <form method="POST" action="/rc">
+         <input type="hidden" name="id" value='{{ .ID }}' />
+         <button class="btn btn-default text-success" type="submit" name="positive" 
+         value="Positive" onclick="return confirm('You are reacting positively to {{ .Title }}, continue?')"
+         style="padding: 0px; margin: 10px 17px 0px 17px;">
+            <i class="far fa-smile fa-3x"></i><br>
+            Positive
+         </button>
+         <button class="btn btn-default text-secondary" type="submit" name="neutral" 
+         value="Neutral" onclick="return confirm('You are reacting neutrally to {{ .Title }}, continue?')"
+         style="margin: 10px 17px 0px 17px; padding: 0px;">
+            <i class="far fa-meh fa-3x"></i><br>
+            Neutral
+         </button>
+         <button class="btn btn-default text-danger" type="submit" name="negative" 
+         value="Negative" onclick="return confirm('You are reacting negatively to {{ .Title }}, continue?')"
+         style="padding: 0px; margin: 10px 0px 0px 17px;">
+            <i class="far fa-frown fa-3x"></i><br>
+            Negative
+         </button>
+      </form>
+   </div>
+</div>
+{{ template "footer"}}
+{{ end }}

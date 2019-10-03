@@ -1,0 +1,82 @@
+{{ define "edit" }}
+{{ template "header" }}
+<div class="row">
+        <div class="col">
+            <a href="/"><button class="btn btn-info"><i class="fas fa-chevron-left"></i> Back</button></a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Edit Post</h1>
+        </div>
+    </div>
+    <br>
+    <form method="POST" action="/update">
+        <input type="hidden" name="id" value='{{ .ID }}'>
+        <div class="form-group">
+            <label><span style="color: red;">*</span> required</label>
+        </div>
+        <div class="form-group">
+            <label for="title">Title<span style="color: red">*</span></label>
+            <input type="text" class="form-control" name="title" placeholder="Title here..." 
+            value="{{ .Title }}" required>
+        </div>
+        <div class="form-group">
+            <label for="author">Author<span style="color: red">*</span></label>
+            <input type="text" class="form-control" name="author" placeholder="Author here..."
+            value="{{ .Author }}" required>
+        </div>
+        <div class="form-group">
+            <label for="body">Body<span style="color: red">*</span></label>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <div class="input-group mb-2">
+                        <button type="button" class="btn btn-secondary" id="b-newline"><i class="fas fa-paragraph"></i> Newline</button>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="t-subsect" placeholder="Subsection here...">
+                        <div class="input-group-prepend">
+                            <button type="button" class="btn btn-secondary" id="b-subsect"><i class="fas fa-heading"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="t-italic" placeholder="Italic text here...">
+                        <div class="input-group-prepend">
+                            <button type="button" class="btn btn-secondary" id="b-italic"><i class="fas fa-italic"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="t-link-u" placeholder="Link url here... (e.g., http://url.com)">
+                        <input type="text" class="form-control" id="t-link-a" placeholder="Link text here...">
+                        <div class="input-group-prepend">
+                            <button type="button" class="btn btn-secondary" id="b-link"><i class="fas fa-link"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="t-img-i" placeholder="Image url here... (e.g., http://url.com/img.jpg)">
+                        <input type="text" class="form-control" id="t-img-d" placeholder="Image description here...">
+                        <div class="input-group-prepend">
+                            <button type="button" class="btn btn-secondary" id="b-img"><i class="far fa-image"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <textarea id="body" class="form-control" name="body" rows="10" placeholder="Body of the post here..." required>{{ .Body }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-block btn-warning" style="font-size: 14pt">Update</button>
+    </form>
+{{ template "footer" }}
+{{ end }}
