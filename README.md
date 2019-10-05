@@ -1,4 +1,4 @@
-# Tugas-6-Pemrograman-Jaringan
+# Tugas-7-Pemrograman-Jaringan
 ### Javiar Fasyah         1301164477
 ### Hilmi Triandi N		    1301164286
 ### Fahrur Rozi Syarbini	1301164213  
